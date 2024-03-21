@@ -1,14 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Home from './rotas/Home';
-import Login from './rotas/login';
-import FazendaFederal from './rotas/FazendaFederal';
-import FazendaEstadual from './rotas/FazendaEstadual';
-import FazendaMunicipal from './rotas/FazendaMunicipal';
-import JusticaTrabalhista from './rotas/JusticaTrabalhista';
-import TJMG from './rotas/tjmg';
-import TRF6 from './rotas/trf6';
-import Header from './componentes/Header';
+import Home from './pages/Home';
 import { createGlobalStyle } from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -25,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
         sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      background-color: #F9F9F9;
     }
 
     code {
@@ -39,9 +32,16 @@ root.render(
   <React.StrictMode>
     <GlobalStyle />
       <BrowserRouter>
-      <Header />
-      <Container>
+      <Home />
       <Routes>
+
+      </Routes>
+      <Footer />
+      </BrowserRouter>
+  </React.StrictMode>
+);
+
+/*
         <Route path='/' element={<Login />} />
         <Route path='/home' element={<Home />} />
         <Route path='/fazendafederal' element={<FazendaFederal />} />
@@ -50,13 +50,7 @@ root.render(
         <Route path='/justicatrabalhista' element={<JusticaTrabalhista />} />
         <Route path='/tjmg' element={<TJMG />} />
         <Route path='/trf6' element={<TRF6 />} />
-      </Routes>
-      </Container>
-      <Footer />
-      </BrowserRouter>
-  </React.StrictMode>
-);
-
+*/
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

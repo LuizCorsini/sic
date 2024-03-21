@@ -9,7 +9,7 @@ const NavBarCustom = styled(Navbar)`
  margin-left:20px;
 `
 
-function MenuHeader() {
+function Header() {
     const [showDropdown, setShowDropdown, expanded, setExpanded] = useState(false);
 
     const handleToggle = () => {
@@ -46,4 +46,4 @@ function MenuHeader() {
     );
 }
 
-export default MenuHeader;
+export default Header;

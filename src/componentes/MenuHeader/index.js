@@ -1,22 +1,13 @@
 import React, { useState } from 'react';
-import { Collapse, Container, Nav, Button, ListGroup } from 'react-bootstrap';
+import { Collapse, Container, Button, ListGroup } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faUserCircle, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faTimes, faBell } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const MenuWrapper = styled.div`
     display: flex;
     align-items: center;
-`;
-
-const MenuItem = styled(Nav.Link)`
-    cursor: pointer;
-`;
-
-const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-    margin-left: 10px;
-    cursor: pointer;
 `;
 
 const CustomContainer = styled(Container)`
@@ -55,7 +46,7 @@ const StyledListGroupItem = styled(ListGroup.Item)`
     cursor: pointer;
 `;
 
-function Botao() {
+function Home() {
     const [openEnvelope, setOpenEnvelope] = useState(false);
     const [openUserCircle, setOpenUserCircle] = useState(false);
 
@@ -78,7 +69,7 @@ function Botao() {
         <>
             <MenuWrapper>
                 <FontAwesomeIcon
-                    icon={faEnvelope}
+                    icon={faBell}
                     size="2x"
                     style={{ color: 'rgb(255, 183, 76)' }}
                     onClick={handleToggleEnvelope}
@@ -115,4 +106,4 @@ function Botao() {
     );
 }
 
-export default Botao;
+export default Home;

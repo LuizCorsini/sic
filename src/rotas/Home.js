@@ -5,7 +5,7 @@ import Navigation from '../componentes/NavHome';
 import Tabbed from '../componentes/Tabbed';
 
 
-function GradesComponentes() {
+function Home() {
 
     return (
 
@@ -27,4 +27,4 @@ function GradesComponentes() {
     );
 };
 
-export default GradesComponentes;
+export default Home;

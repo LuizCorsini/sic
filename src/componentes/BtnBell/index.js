@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope} from '@fortawesome/free-solid-svg-icons';
+import { faBell} from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
 const AwesomeIcon = styled(FontAwesomeIcon)`
@@ -23,7 +23,7 @@ function BtnCanvasEnvelope({ name, ...props }) {
   return (
     <>
       <AwesomeIcon 
-        icon={faEnvelope}
+        icon={faBell}
         onClick={handleShow}
         className="me-2"
         size="2x"

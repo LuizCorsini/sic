@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import React from 'react';
-import Logo from '../../imagens/sic-logo.png';
-import { CustomButtomModal } from '../BtnModal';
+import Logo from '../imagens/sic-logo.png';
+import { CustomButtomModal } from '../componentes/BtnModal';
 import { Navbar, Modal, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
-function NavBarLogo({ isLoggedIn }) {
+function Brand({ isLoggedIn }) {
 
     const [showModal, setShowModal] = useState(false);
 
@@ -58,4 +58,4 @@ function NavBarLogo({ isLoggedIn }) {
 
 }
 
-export default NavBarLogo;
+export default Brand;
