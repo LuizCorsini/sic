@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Home from './pages/Home';
+import Reports from './pages/Reports';
 import { createGlobalStyle } from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import Footer from './componentes/Footer/'
-import { Container } from 'react-bootstrap';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -32,9 +32,9 @@ root.render(
   <React.StrictMode>
     <GlobalStyle />
       <BrowserRouter>
-      <Home/>
       <Routes>
-
+        <Route path='/home' element={<Home />} />
+        <Route path='/reports' element={<Reports />} />
       </Routes>
       <Footer />
       </BrowserRouter>
@@ -43,8 +43,7 @@ root.render(
 
 /*
         <Route path='/' element={<Login />} />
-        <Route path='/home' element={<Home />} />
-        <Route path='/fazendafederal' element={<FazendaFederal />} />
+
         <Route path='/fazendaestadual' element={<FazendaEstadual />} />
         <Route path='/fazendamunicipal' element={<FazendaMunicipal />} />
         <Route path='/justicatrabalhista' element={<JusticaTrabalhista />} />

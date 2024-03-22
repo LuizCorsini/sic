@@ -41,7 +41,7 @@ const StyledNavLink = styled(Nav.Link)`
 
 // Estilizando o componente Nav com a animação de entrada
 const StyledNav = styled(Nav)`
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   animation: ${fadeIn} 0.5s ease-in-out;
 `;
 
@@ -49,7 +49,7 @@ function Navigation() {
   // Array contendo as rotas e seus nomes
   const routes = [
     { path: '/home', name: 'Home', icon: faHome },
-    { path: '/relatorios', name: 'Gerar Relatórios', icon: faFileAlt },
+    { path: '/reports', name: 'Gerar Relatórios', icon: faFileAlt },
   ];
 
   const currentPath = useLocation().pathname;

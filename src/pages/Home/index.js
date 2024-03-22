@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import Tabbed from './components/Tabbet';
 import Header from './components/Header'
 import Navigation from '../../componentes/Navigation';

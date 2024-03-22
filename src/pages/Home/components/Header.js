@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from "react-router-dom";
 import Logo from '../../../imagens/logo.png'
 import { useState } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
@@ -85,7 +84,6 @@ function Header({ name, ...props }){
 
     )
 };
-
 
 
 export default Header;
