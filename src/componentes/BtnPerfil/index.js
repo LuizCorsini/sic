@@ -5,7 +5,7 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Nav } from 'react-bootstrap';
 import styled from 'styled-components';
 
-const AwesomeIcon = styled(FontAwesomeIcon)`
+const FontAwesomeIcon = styled(FontAwesomeIcon)`
     color: hsl(29, 100%, 66%);
     transition: transform 0.3s, color 0.3s;
     &:hover {

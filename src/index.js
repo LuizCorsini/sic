@@ -32,7 +32,7 @@ root.render(
   <React.StrictMode>
     <GlobalStyle />
       <BrowserRouter>
-      <Home />
+      <Home/>
       <Routes>
 
       </Routes>

@@ -49,7 +49,7 @@ function Navigation() {
   // Array contendo as rotas e seus nomes
   const routes = [
     { path: '/home', name: 'Home', icon: faHome },
-    { path: '/fazendaestadual', name: 'Gerar Relatórios', icon: faFileAlt },
+    { path: '/relatorios', name: 'Gerar Relatórios', icon: faFileAlt },
   ];
 
   const currentPath = useLocation().pathname;

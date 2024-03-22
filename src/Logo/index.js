@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import React from 'react';
-import Logo from '../imagens/sic-logo.png';
+import Logo from '../imagens/logo.png';
 import { CustomButtomModal } from '../componentes/BtnModal';
 import { Navbar, Modal, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';

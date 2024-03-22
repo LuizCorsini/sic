@@ -5,7 +5,6 @@ function Tabbed() {
   return (
     <Tabs
       defaultActiveKey="profile"
-      id="fill-tab-example"
       className="mb-3"
       fill
     >
