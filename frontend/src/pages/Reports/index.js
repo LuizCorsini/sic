@@ -4,10 +4,13 @@ import styled from 'styled-components';
 import Navigation from '../../componentes/Navigation';
 import FormReports from './components/Form';
 import AdreasCard from '../../componentes/AdreasCard';
+import Footer from '../../componentes/Footer';
+import Header from '../Home/components/Header';
 
 
 const StyledContainer = styled(Container)`
     margin-top: 100px;
+    margin-bottom: 120px;
 `;
 const adreas = [
     { 
@@ -71,6 +74,7 @@ const Reports = () => {
 
     return (
         <StyledContainer>
+            <Header />
             <Navigation />
             < FormReports />
             <Row>
@@ -82,7 +86,9 @@ const Reports = () => {
                     }
                 </Col>
             </Row>
+            <Footer />
         </StyledContainer>
+       
     );
 };
 

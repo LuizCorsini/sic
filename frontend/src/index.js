@@ -6,7 +6,6 @@ import { createGlobalStyle } from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-import Footer from './componentes/Footer/'
 
 
 const GlobalStyle = createGlobalStyle`
@@ -36,7 +35,6 @@ root.render(
         <Route path='/home' element={<Home />} />
         <Route path='/reports' element={<Reports />} />
       </Routes>
-      <Footer />
       </BrowserRouter>
   </React.StrictMode>
 );

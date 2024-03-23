@@ -9,7 +9,8 @@ const RodaPe = styled.footer`
     bottom: 0;
     left: 0;
     text-align: center;
-    line-height: 50px;
+    line-height: 100px;
+    z-index: 999;
 `
 
 function Footer(){
