@@ -16,13 +16,18 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
     }
 `;
 
+const StyledNavbar = styled(Navbar)`
+    background: #FFF ;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+`;
+
 function Header({ name, ...props }){
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return(
-    <Navbar fixed='top' expand="lg" className="mb-3 bg-dark">
+    <StyledNavbar fixed='top' expand="lg" className="mb-3">
             <Container fluid="lg">
                 <Navbar.Brand href='#'>
                     <img
@@ -78,7 +83,7 @@ function Header({ name, ...props }){
                         </Col>
                     </Row> 
             </Container>
-        </Navbar>
+        </StyledNavbar>
 
         
 

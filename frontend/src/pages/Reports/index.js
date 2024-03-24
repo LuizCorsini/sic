@@ -13,23 +13,25 @@ const StyledContainer = styled(Container)`
     margin-bottom: 120px;
 `;
 const adreas = [
-    { 
-        "id": 1, 
+    {
+        "id": 1,
         "author": {
             "id": 1,
             "name": "Carlos Augusto",
-            "username":  "carlosaugusto",
+            "username": "carlosaugusto",
             "avatar": "./imagens/avatars/avatar_1.jpeg"
         },
         "endereco": "Rua Otacílio Negrão de Lima",
         "numero": "32",
-        "tipo_endereco": ["Apto"], // Corrigido para ser um tipo enumerado
+        "tipo_endereco": ["Apto"],
         "complemento": "",
-        "bairro": "Jardim Botânico", // Corrigido o nome do bairro
-        "cep": "31450-007", // Corrigido o formato do CEP
-        "cpf": "08760-365", // Pode ser removido se não for necessário
-        "cnpj": "143.856.965-01", // Pode ser removido se não for necessário
-        "data_nascimento": "1990-01-01" // Adicionada uma data de exemplo
+        "bairro": "Jardim Botânico",
+        "cidade": "Belo Horizonte",
+        "estado": "MG",
+        "cep": "31450-007",
+        "cpf": "08760-365",
+        "cnpj": "143.856.965-01",
+        "data_nascimento": "1990-01-01"
     },
     {
         "id": 2,
@@ -44,6 +46,8 @@ const adreas = [
         "tipo_endereco": ["Casa"],
         "complemento": "Apto 101",
         "bairro": "Bela Vista",
+        "cidade": "São Paulo",
+        "estado": "SP",
         "cep": "01310-100",
         "cpf": "143.856.855-01",
         "cnpj": "12.345.678/0001-90",
@@ -62,11 +66,14 @@ const adreas = [
         "tipo_endereco": ["Casa"],
         "complemento": "Fundos",
         "bairro": "Vila Nova",
+        "cidade": "São Paulo",
+        "estado": "SP",
         "cep": "07890-123",
         "cpf": "987.654.321-00",
         "cnpj": "23.345.678/0001-80",
         "data_nascimento": "1992-08-03"
     }
+    
   ];
 
 const Reports = () => {

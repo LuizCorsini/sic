@@ -6,6 +6,7 @@ import { createGlobalStyle } from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import SignIn from './pages/Signin';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -34,6 +35,7 @@ root.render(
       <Routes>
         <Route path='/home' element={<Home />} />
         <Route path='/reports' element={<Reports />} />
+        <Route path='/sign-in' element={<SignIn />} />
       </Routes>
       </BrowserRouter>
   </React.StrictMode>

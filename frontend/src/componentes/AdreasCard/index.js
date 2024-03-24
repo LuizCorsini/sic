@@ -11,6 +11,9 @@ import styled from 'styled-components';
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   margin-right: 5px;
 `
+const StyledParagraph = styled.p`
+  font-weight: 400;
+`
 
 function AdreasCard({ adreas }) {
 
@@ -36,8 +39,18 @@ function AdreasCard({ adreas }) {
       <ListGroup.Item as="li" className=" mt-3 d-flex justify-content-between align-items-start">
         <Row id="enderecos" className="ms-2 me-auto">
           <div className="fw-bold">
-            <p>Nome: {adreas.author.name}</p>
-            <p>CPF: {adreas.cpf}</p>
+            <StyledParagraph>
+                <strong>Nome Propietário:</strong> {adreas.author.name}<br/>
+                <strong>CPF:</strong> {adreas.cpf}<br/>
+                <strong>CNPJ:</strong> {adreas.cnpj}<br/>
+                <strong>Data de Nascimento:</strong> {adreas.data_nascimento}<br/>
+                <strong>Endereço:</strong> {adreas.endereco} - {adreas.tipo_endereco}, {adreas.numero} - {adreas.bairro}<br/>
+                <strong>Cidade: </strong>{adreas.cidade} | {adreas.estado}<br/>
+                <strong>CEP:</strong> {adreas.cep}<br/>
+                <strong>Complemento:</strong> {adreas.complemento}<br/>
+
+
+            </StyledParagraph>
             <div>
             <Button
               className='mt-2'
