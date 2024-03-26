@@ -8,6 +8,7 @@ import ThemeProvider from 'react-bootstrap/ThemeProvider'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import SignIn from './pages/Signin';
+import './mock';
 
 
 // const GlobalStyle = createGlobalStyle`

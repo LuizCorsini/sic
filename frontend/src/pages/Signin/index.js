@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import Background from "../../imagens/background2.png"
-import { Row, Col, Form, Button } from "react-bootstrap";
+import Background from "../../imagens/background3.png"
+import { Row, Col, Form, Button, Modal } from "react-bootstrap";
 import { faRightToBracket, faUserLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
+import authService from "../../services/authServices";
+import { useState } from "react";
 
 const ColLeft = styled(Col)`
     background-image: url(${Background});
@@ -18,7 +21,7 @@ const ColLeft = styled(Col)`
 
 const StyledH1 = styled.h1`
     font-weight: 700;
-    color: hsl(24, 70%, 50%);
+    color: #ff9100f5;
     font-size: 70px;
 `
 
@@ -42,7 +45,6 @@ const StyledfaRightToBracket = styled(FontAwesomeIcon)`
     margin-right: 10px
 `;
 
-
 const StyledFormControl= styled(Form.Control)`
     border-left: none;
     border-right: none;
@@ -52,7 +54,7 @@ const StyledFormControl= styled(Form.Control)`
 `;
 
 const StyledButton = styled(Button)`
-    background: hsl(24, 70%, 50%);
+    background: #ff9100f5;
     border: 0;
     &:hover{
         background: rgb(91, 0, 177);
@@ -64,7 +66,37 @@ const StyledButton = styled(Button)`
     }
 `;
 
+const StyledButtonModal = styled(Button)`
+    background: #ff9100f5;
+`;
+
 function SignIn() {
+    const navigate = useNavigate();
+    const [showModal, setShowModal] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    async function handleSignIn(){
+        //chamada API
+        //Se Retorno ok, direciona para home
+        //Se não exibe mensagem para o usuario
+
+        //objeto promise
+        // axios.get('https://api.github.com/users/luizcorsini')
+        //     .then(response =>{
+        //         console.log(response.data)
+        //     })
+        //     .catch(error =>{
+        //         console.log('Ocorreu erro')
+        //     })
+        try{
+            await authService.SignIn(email, password);
+            navigate('/home');
+        } catch (error){
+            setShowModal(true);
+        }
+
+    };
     return (
         <StyleRow>
             <ColLeft 
@@ -79,11 +111,14 @@ function SignIn() {
 
                 <Form as={Col} md={8}>
                 <Row className="justify-content-md-center">
-                    <FontAwesomeIcon style={{color:'hsl(24, 70%, 50%)'}} icon={faUserLock} className="mb-3" as={Col} size="2x" md="auto"  />
+                    <FontAwesomeIcon style={{color:'#ff9100f5'}} icon={faUserLock} className="mb-3" as={Col} size="2x" md="auto"  />
                 </Row>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>E-mail</Form.Label>
-                        <StyledFormControl type="email" placeholder="Digite seu e-mail" />
+                        <StyledFormControl 
+                        value={email} 
+                        onChange={(event) => setEmail(event.target.value)} 
+                        type="email" placeholder="Digite seu e-mail" />
                         <Form.Text className="text-muted">
                         Não compartilhamos seus dados de e-mail com terceiros.
                         </Form.Text>
@@ -91,16 +126,32 @@ function SignIn() {
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Senha</Form.Label>
-                        <StyledFormControl type="password" placeholder="Digite sua senha" />
+                        <StyledFormControl 
+                        value={password} 
+                        onChange={(event) => setPassword(event.target.value)} 
+                        type="password" placeholder="Digite sua senha" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Check me out" />
                     </Form.Group>
-                    <StyledButton variant="primary" type="submit">
+                    <StyledButton onClick={handleSignIn} variant="primary" type="submit">
                         <StyledfaRightToBracket active='false' icon={faRightToBracket}></StyledfaRightToBracket><span>Entrar</span>
                     </StyledButton>
                 </Form>
-            </ColRigth>            
+            </ColRigth>
+            <Modal show={showModal} onHide={() => setShowModal(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Erro no Login</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    Ocorreu um erro ao fazer login. Por favor, verifique suas credenciais e tente novamente.
+                </Modal.Body>
+                <Modal.Footer>
+                    <StyledButtonModal variant="warning" onClick={() => setShowModal(false)}>
+                        Fechar
+                    </StyledButtonModal>
+                </Modal.Footer>
+            </Modal>            
         </StyleRow>
     );
 }
