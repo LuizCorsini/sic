@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Background from "../../imagens/background3.png"
+import Background from "../../imagens/background3.png";
 import { Row, Col, Form, Button, Modal } from "react-bootstrap";
 import { faRightToBracket, faUserLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,49 +13,85 @@ const ColLeft = styled(Col)`
     background-position: center;
     background-size: cover;
     display: flex;
+    padding: 50px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%; /* Garante que a div ocupe toda a altura */
+    height: 100%;
+    @media (max-width: 450px) {
+        display: none;
+        height: 20%;
+    }
 `;
 
 const StyledH1 = styled.h1`
     font-weight: 700;
     color: #ff9100f5;
-    font-size: 70px;
-`
+    font-size: 3.5rem;
+
+    @media (min-width: 576px) {
+        font-size: 3rem;
+    }
+
+    @media (min-width: 768px) {
+        font-size: 4rem;
+    }
+
+    @media (min-width: 992px) {
+        font-size: 4rem;
+    }
+
+    @media (min-width: 1200px) {
+        font-size: 5rem;
+    }
+`;
 
 const ColRigth= styled(Col)`
     background: #FFF; 
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%; /* Garante que a div ocupe toda a altura */
+    height: 100%;
 `;
 
 const StyleRow = styled(Row)`
     height: 100vh;
 `;
 
-const StyleStrong = styled.strong`
+const StyleSpam = styled.span`
     color: rgb(91, 0, 177);
 `;
 
 const StyledfaRightToBracket = styled(FontAwesomeIcon)`
-    margin-right: 10px
+    margin-right: 10px;
 `;
 
 const StyledFormControl= styled(Form.Control)`
-    border-left: none;
-    border-right: none;
-    border-top: none;
+    border: none;
+    font-size: 15;
+    background: transparent;
+    line-height: 1.2;
     border-radius: 0;
-    caret -color: rgb(255, 145, 0);
+    caret-color: rgb(255, 145, 0);
 `;
+
+
+const StyledFormGroup = styled(Form.Group)`
+    border-bottom: 1px solid grey;
+    padding: 0 10px;
+    width: 100%;
+    input:focus{
+        outline: 0;
+    }
+
+`
 
 const StyledButton = styled(Button)`
     background: #ff9100f5;
     border: 0;
+    border-radius: 0;
+    width: 100%;
+    padding: 10px;
     &:hover{
         background: rgb(91, 0, 177);
     }
@@ -68,6 +104,27 @@ const StyledButton = styled(Button)`
 
 const StyledButtonModal = styled(Button)`
     background: #ff9100f5;
+    border: 0;
+    border-radius: 0;
+    color: white;
+    &:hover{
+        background: rgb(91, 0, 177);
+        color: #FFF;
+    }
+    &:active{
+        background: rgb(91, 0, 177);
+        box-shadow: 0 1px #666;
+        transform: translateY(1px)
+    }
+`;
+
+const StyledModal = styled(Modal)`
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+
+    .modal-content {
+        max-width: 500px;
 `;
 
 function SignIn() {
@@ -77,18 +134,6 @@ function SignIn() {
     const [password, setPassword] = useState('');
 
     async function handleSignIn(){
-        //chamada API
-        //Se Retorno ok, direciona para home
-        //Se não exibe mensagem para o usuario
-
-        //objeto promise
-        // axios.get('https://api.github.com/users/luizcorsini')
-        //     .then(response =>{
-        //         console.log(response.data)
-        //     })
-        //     .catch(error =>{
-        //         console.log('Ocorreu erro')
-        //     })
         try{
             await authService.SignIn(email, password);
             navigate('/home');
@@ -99,47 +144,45 @@ function SignIn() {
     };
     return (
         <StyleRow>
-            <ColLeft 
-                xs={7}>
-                    <StyledH1 
-                    as={Col} 
-                    md={9}>Compromissos Contratuais em <StyleStrong>um</StyleStrong> Toque</StyledH1>
+            <ColLeft xs={12} md={7}>
+                <StyledH1>Compromissos Contratuais em <StyleSpam>Um</StyleSpam> Toque</StyledH1>
             </ColLeft>
-
-
-            <ColRigth md={5}>
-
+            <ColRigth xs={12} md={5}>
                 <Form as={Col} md={8}>
-                <Row className="justify-content-md-center">
-                    <FontAwesomeIcon style={{color:'#ff9100f5'}} icon={faUserLock} className="mb-3" as={Col} size="2x" md="auto"  />
-                </Row>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Row className="justify-content-md-center">
+                        <FontAwesomeIcon style={{color:'#ff9100f5'}} icon={faUserLock} className="mb-3" size="2x" />
+                    </Row>
+                    <StyledFormGroup className="mb-3">
                         <Form.Label>E-mail</Form.Label>
                         <StyledFormControl 
-                        value={email} 
-                        onChange={(event) => setEmail(event.target.value)} 
-                        type="email" placeholder="Digite seu e-mail" />
-                        <Form.Text className="text-muted">
-                        Não compartilhamos seus dados de e-mail com terceiros.
-                        </Form.Text>
-                    </Form.Group>
+                            value={email} 
+                            onChange={(event) => setEmail(event.target.value)} 
+                            type="email" 
+                            placeholder="Digite seu e-mail" 
+                        />
+                    </StyledFormGroup>
+                    <Form.Text className="text-muted">
+                            Não compartilhamos seus dados de e-mail com terceiros.
+                    </Form.Text>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <StyledFormGroup className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Senha</Form.Label>
                         <StyledFormControl 
-                        value={password} 
-                        onChange={(event) => setPassword(event.target.value)} 
-                        type="password" placeholder="Digite sua senha" />
-                    </Form.Group>
+                            value={password} 
+                            onChange={(event) => setPassword(event.target.value)} 
+                            type="password" 
+                            
+                        />
+                    </StyledFormGroup>
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out" />
+                        <Form.Check type="checkbox" label="lembrar de mim" />
                     </Form.Group>
                     <StyledButton onClick={handleSignIn} variant="primary" type="submit">
                         <StyledfaRightToBracket active='false' icon={faRightToBracket}></StyledfaRightToBracket><span>Entrar</span>
                     </StyledButton>
                 </Form>
             </ColRigth>
-            <Modal show={showModal} onHide={() => setShowModal(false)}>
+            <StyledModal show={showModal} onHide={() => setShowModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Erro no Login</Modal.Title>
                 </Modal.Header>
@@ -151,7 +194,7 @@ function SignIn() {
                         Fechar
                     </StyledButtonModal>
                 </Modal.Footer>
-            </Modal>            
+            </StyledModal>            
         </StyleRow>
     );
 }

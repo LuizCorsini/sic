@@ -2,7 +2,7 @@ import axios from '../utils/axios';
 
 class AuthService {
 
-    SignIn(email, password){
+    SignIn = (email, password) => {
         return new Promise((resolve, reject) => {
             axios.post('/api/home/login', {email, password})
             .then(response => {
