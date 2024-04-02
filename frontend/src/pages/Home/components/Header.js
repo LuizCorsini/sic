@@ -1,11 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import styled from 'styled-components';
 import Logo from '../../../imagens/logo.png'
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { faUserCircle, faBell } from '@fortawesome/free-solid-svg-icons';
 import { Navbar, Container, Row, Col, Nav, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled from 'styled-components';
+import useAuth from '../../../hooks/useAuth';
+
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
     color: hsl(29, 100%, 66%);
@@ -22,6 +25,9 @@ const StyledNavbar = styled(Navbar)`
 `;
 
 function Header({ name, ...props }){
+    
+    const { signout } = useAuth();
+    const navigate = useNavigate();
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -77,7 +83,7 @@ function Header({ name, ...props }){
                                 </Offcanvas.Header>
                                 <Offcanvas.Body>
                                 <Nav.Link href="#action1">Meus Dados</Nav.Link>
-                                <Nav.Link href="#action2">Sair</Nav.Link>
+                                <Nav.Link onClick={() =>[signout(), navigate("/")]}>Sair</Nav.Link>
                                 </Offcanvas.Body>
                             </Offcanvas>
                         </Col>
