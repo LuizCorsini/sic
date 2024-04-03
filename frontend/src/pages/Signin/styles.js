@@ -119,12 +119,20 @@ export const StyledButtonReg = styled(Button)`
 
 export const StyledLinkButtonReg = styled(Link)`
     text-decoration: none;
+    display: block;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #ff9100f5;
+    padding: 9px;
     font-weight: 600;
     color: #ff9100f5;
+    transition: background-color 0.5s;
     &:hover{
         color: #FFF;
-    }
-`
+        background: #ee8700f5;
+    }  
+`;
 
 export const StyledButtonModal = styled(Button)`
     background: #ff9100f5;

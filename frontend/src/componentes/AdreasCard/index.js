@@ -1,8 +1,7 @@
 import Badge from 'react-bootstrap/Badge';
-import ListGroup from 'react-bootstrap/ListGroup';
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import { Row } from 'react-bootstrap';
+import { ListGroup, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
@@ -10,9 +9,28 @@ import styled from 'styled-components';
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   margin-right: 5px;
-`
+`;
+
 const StyledParagraph = styled.p`
   font-weight: 400;
+`;
+
+const StyledListGroupItem = styled(ListGroup.Item)`
+  background: rgb(240, 240, 240);
+  padding: 15px;
+  border-radius: 10px;
+`;
+
+const StyledBttonDownload = styled(Button)`
+  background: #a200ff ;
+  border: none;
+  &:hover{
+    background:#8300cf ;
+  }
+  &:active{
+    background: #8300cf;
+    outline: #8300cf ;
+  }
 `
 
 function AdreasCard({ adreas }) {
@@ -36,10 +54,11 @@ function AdreasCard({ adreas }) {
   return (
 
     <ListGroup>
-      <ListGroup.Item as="li" className=" mt-3 d-flex justify-content-between align-items-start">
+      <StyledListGroupItem as="li" className=" mt-3 d-flex justify-content-between align-items-start">
         <Row id="enderecos" className="ms-2 me-auto">
           <div className="fw-bold">
             <StyledParagraph>
+
                 <strong>Nome Propietário:</strong> {adreas.author.name}<br/>
                 <strong>CPF:</strong> {adreas.cpf}<br/>
                 <strong>CNPJ:</strong> {adreas.cnpj}<br/>
@@ -52,21 +71,21 @@ function AdreasCard({ adreas }) {
 
             </StyledParagraph>
             <div>
-            <Button
+            <StyledBttonDownload
               className='mt-2'
               variant="success"
               disabled={isLoading}
               onClick={!isLoading ? handleClick : null}
               ><StyledFontAwesomeIcon icon={faFileArrowDown} />
               { isLoading ? 'Loading…' : 'Download'}
-            </Button>
+            </StyledBttonDownload>
             </div>
           </div>
         </Row>
         <Badge bg="warning" pill>
           14
         </Badge>
-      </ListGroup.Item>
+      </StyledListGroupItem>
     </ListGroup>
   );
 }

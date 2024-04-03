@@ -29,7 +29,7 @@ const SignIn = () => {
       setShowModal(true);
       return;
     }
-    navigate("/home")
+    navigate("/home");
   };
 
   return (
@@ -77,12 +77,10 @@ const SignIn = () => {
               onClick={handleSignIn} 
               variant="primary" 
               type="submit"
-              className="mb-2">
+              className="mb-3">
               <C.StyledfaRightToBracket active='false' icon={faRightToBracket}></C.StyledfaRightToBracket><span>Entrar</span>
             </C.StyledButton>
-            <C.StyledButtonReg to='/signup' type="submit">
               <C.StyledLinkButtonReg Text="" to='/signup'>Registre-se</C.StyledLinkButtonReg>
-            </C.StyledButtonReg>
           </Form>
           </C.ColRigth>
             <C.StyledModal show={showModal} onHide={() => setShowModal(false)}>

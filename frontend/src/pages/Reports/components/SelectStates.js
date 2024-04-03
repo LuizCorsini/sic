@@ -16,10 +16,10 @@ const SelectStates = ({ onChange }) => {
     };
 
     return (
-            <Form.Group as={Col} controlId="estado">
+            <Form.Group className='mb-3' as={Col} xs={1} controlId="estado">
                 <Form.Label>Estado</Form.Label>
                 <Form.Select onChange={handleChange} value={estadoSelecionado} aria-label="Selecione um estado">
-                    <option value="">Selecione um estado</option>
+                    <option value="">--</option>
                     {estadosBrasileiros.map((estado, index) => (
                         <option key={index} value={estado}>
                             {estado}

@@ -11,6 +11,7 @@ import Header from '../Home/components/Header';
 const StyledContainer = styled(Container)`
     margin-top: 100px;
     margin-bottom: 120px;
+    backgorund:rgb(230, 230, 230);
 `;
 const adreas = [
     {
