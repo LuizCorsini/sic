@@ -9,6 +9,25 @@ export const Container = styled.div`
   height: 100vh;
 `;
 
+export const Button = styled.button`
+    background: #ff9100f5;
+    border: 0;
+    color: #fff;
+    border-radius: 5px;
+    width: 100%;
+    font-weight: 600;
+    padding: 10px;
+    &:hover{
+        background:#ee8700f5;
+    }
+    &:active{
+        background: false;
+        box-shadow: 0 1px #666;
+        transform: translateY(1px)
+    }
+`;
+
+
 export const Content = styled.div`
   gap: 15px;
   display: flex;
@@ -20,6 +39,7 @@ export const Content = styled.div`
   background-color: white;
   max-width: 350px;
   padding: 20px;
+  border: 1px solid #ff9900;
   border-radius: 5px;
 `;
 

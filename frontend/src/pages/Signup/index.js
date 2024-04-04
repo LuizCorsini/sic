@@ -35,7 +35,7 @@ const SignUp = () => {
 
   return (
         <C.Container>
-        <C.Label>SISTEMA DE LOGIN</C.Label>
+        <C.Label>Cadastro de Usuário</C.Label>
         <C.Content>
         <Form.Control
             type="email"
@@ -56,7 +56,7 @@ const SignUp = () => {
             onChange={(e) => [setSenha(e.target.value), setError("")]}
         />
         <C.labelError>{error}</C.labelError>
-        <Button onClick={handleSignup} >Inscrever-se</Button>
+        <C.Button onClick={handleSignup} >Inscrever-se</C.Button>
         <C.LabelSignin>
             Já tem uma conta?
             <C.Strong>
